@@ -1,0 +1,49 @@
+#include<iostream>
+#include <string>
+#include <bits/stdc++.h>
+#include <vector>
+#include<bitset>
+#include<stack>
+#include<set>
+#define yes cout<<"YES\n"
+#define no cout<<"NO\n"
+#define int  long long
+#define yesno if(fg)yes;else no;
+#define all(x) (x).begin(), (x).end()
+#define W(T) int T;cin>>T;while(T--)
+const long double eps = 1e-8;
+using namespace std;
+vector<int>v;
+void fast() {
+    ios_base::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+}
+vector<bool>primes()
+{
+    int n=10000000;
+    vector<bool>isprime(n,1);
+    isprime[0]=isprime[1]=0;
+    for(int t=0; t<=sqrt(n); t++)
+    {
+        if(isprime[t])
+        {
+            for(int i=t*2; i<n; i+=t)
+            {
+                isprime[i]=0;
+            }
+        }
+    }
+    return isprime;
+}
+signed main() {
+    fast();
+    vector<bool>p=primes();
+    W(T)
+    {
+        int n;
+        cin>>n;
+        double x=sqrt((double)n);
+        n= sqrt(n);
+        if(n==x&&p[n])yes;
+        else no;
+    }
+}
